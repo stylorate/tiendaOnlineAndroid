@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiendaonline.Fragments.ProductDetailFragment
 import com.example.tiendaonline.R
 import com.example.tiendaonline.adapter.ProductAdapter
 import com.example.tiendaonline.model.Product
@@ -16,13 +17,19 @@ class ProductsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product_list)
+        setContentView(R.layout.fragment_lista_producto)
 
-        recyclerView = findViewById(R.id.recyclerViewProducts)
+        recyclerView = findViewById(R.id.rv_products)
 
         products = generateProducts()
 
-        adapter = ProductAdapter(products)
+        adapter = ProductAdapter(products){product ->
+            val fragment = ProductDetailFragment.newInstance(product)
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = adapter
@@ -31,12 +38,18 @@ class ProductsActivity : AppCompatActivity() {
     private fun generateProducts(): List<Product> {
         return listOf(
             Product(
+                1,
                 "Producto 1",
-                "https://www.google.com/imgres?q=imagen%20producto&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5617%2F5617585.png&imgrefurl=https%3A%2F%2Fwww.flaticon.es%2Ficono-gratis%2Fproducto_5617585&docid=3fW3iS6Q3QiY5M&tbnid=u7wCZ3HTtvJ_-M&vet=12ahUKEwjn67XU5PmMAxUzTaQEHTtlHE4QM3oECBoQAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjn67XU5PmMAxUzTaQEHTtlHE4QM3oECBoQAA"
+                "Detalle",
+                50.0,
+                R.drawable.item
             ),
             Product(
+                2,
                 "Producto 2",
-                "https://www.google.com/imgres?q=imagen%20producto&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5617%2F5617585.png&imgrefurl=https%3A%2F%2Fwww.flaticon.es%2Ficono-gratis%2Fproducto_5617585&docid=3fW3iS6Q3QiY5M&tbnid=u7wCZ3HTtvJ_-M&vet=12ahUKEwjn67XU5PmMAxUzTaQEHTtlHE4QM3oECBoQAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjn67XU5PmMAxUzTaQEHTtlHE4QM3oECBoQAA"
+                "Detalle",
+                50.0,
+                R.drawable.item
             ),
         )
     }

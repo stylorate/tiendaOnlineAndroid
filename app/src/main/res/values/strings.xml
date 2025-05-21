@@ -11,4 +11,15 @@
     <string name="documento">Documento</string>
     <string name="imagen_del_producto">Imagen del producto</string>
     <string name="nombre_del_producto">Nombre del producto</string>
+    <string name="tienda_virtual">Tienda virtual</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="ubicaci_n_1">Ubicación 1</string>
+    <string name="ubicaci_n_3">Ubicación 3</string>
+    <string name="ubicaci_n_2">Ubicación 2</string>
+    <string name="comprar">Comprar</string>
+    <string name="carrito_de_compras">Carrito de compras</string>
+    <string name="vaciar_carrito">Vaciar carrito</string>
+    <string name="nombre_producto">Nombre producto</string>
+    <string name="_0_00">$0.00</string>
+    <string name="registrarse">Registrarse</string>
 </resources>

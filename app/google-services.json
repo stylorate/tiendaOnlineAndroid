@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "642853362186",
+    "project_id": "jelsjewelry",
+    "storage_bucket": "jelsjewelry.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642853362186:android:b3789ca78507843ab7ddf3",
+        "android_client_info": {
+          "package_name": "com.example.tiendaonline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5w64JnC-JmPsBk8D7doSZESsNvJVNW6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

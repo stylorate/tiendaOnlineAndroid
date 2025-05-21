@@ -25,12 +25,20 @@
             android:id="@+id/textProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/nombre_del_producto"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:paddingTop="8dp"
+            android:ellipsize="end"
             android:maxLines="1"
-            android:ellipsize="end" />
+            android:paddingTop="8dp"
+            android:text="@string/nombre_del_producto"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/rojo_hola_mundo"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

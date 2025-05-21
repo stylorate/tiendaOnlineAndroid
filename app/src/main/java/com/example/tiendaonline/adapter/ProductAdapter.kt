@@ -12,11 +12,17 @@ import com.example.tiendaonline.model.Product
 import java.net.HttpURLConnection
 import java.net.URL
 
-class ProductAdapter (private val products: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter (private val products: List<Product>,
+                      private val onItemClick: (Product) -> Unit) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageProduct: ImageView = itemView.findViewById(R.id.imageProduct)
         val textProductName: TextView = itemView.findViewById(R.id.textProductName)
+        init {
+            itemView.setOnClickListener {
+                onItemClick(products[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -38,19 +44,21 @@ class ProductAdapter (private val products: List<Product>) : RecyclerView.Adapte
 
     override fun getItemCount(): Int = products.size
 
-    private fun loadImageFromUrl(urlString: String, imageView: ImageView) {
+    private fun loadImageFromUrl(urlString: Int, imageView: ImageView) {
         Thread {
             try {
-                val url = URL(urlString)
-                val connection = url.openConnection() as HttpURLConnection
-                connection.doInput = true
-                connection.connect()
-                val inputStream = connection.inputStream
-                val bitmap = BitmapFactory.decodeStream(inputStream)
+//                val url = URL(urlString)
+//                val connection = url.openConnection() as HttpURLConnection
+//                connection.doInput = true
+//                connection.connect()
+//                val inputStream = connection.inputStream
+//                val bitmap = BitmapFactory.decodeStream(inputStream)
+//
+//                imageView.post {
+//                    imageView.setImageBitmap(bitmap)
+//                }
 
-                imageView.post {
-                    imageView.setImageBitmap(bitmap)
-                }
+                imageView.setImageResource(urlString)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
