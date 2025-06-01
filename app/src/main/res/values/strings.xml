@@ -22,4 +22,11 @@
     <string name="nombre_producto">Nombre producto</string>
     <string name="_0_00">$0.00</string>
     <string name="registrarse">Registrarse</string>
+    <string name="add_item">Add Item</string>
+    <string name="detalle_del_producto">Detalle</string>
+    <string name="precio">Precio</string>
+    <string name="imagen">Imagen</string>
+    <string name="seleccionar_imagen">Seleccionar Imagen</string>
+    <string name="agregar_producto">Agregar Producto</string>
+    <string name="tomar_foto">Tomar Foto</string>
 </resources>

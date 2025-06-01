@@ -34,8 +34,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        FirebaseApp.initializeApp(this)
-//        val mAuth = FirebaseAuth.getInstance()
+        FirebaseApp.initializeApp(this)
+        val mAuth = FirebaseAuth.getInstance()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -56,20 +56,23 @@ class LoginActivity : AppCompatActivity() {
             if (password == null || password.text.isEmpty()) {
                 Toast.makeText(this, "Por favor ingrese su contraseña", Toast.LENGTH_SHORT).show()
             }
-            val intent = Intent(this, ProductsActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, ProductsActivity::class.java)
+//            startActivity(intent)
 
-//            mAuth.signInWithEmailAndPassword(email.toString(), password.toString())
-//                .addOnCompleteListener { task ->
-//                    if (task.isSuccessful) {
-//                        val user = mAuth.currentUser
-//                        Log.d("Firebase", "Sesión iniciada: " + user!!.email)
-//                        val intent = Intent(this, ProductsActivity::class.java)
-//                        startActivity(intent)
-//                    } else {
-//                        Log.e("Firebase", "Error al iniciar sesión: ", task.exception)
-//                    }
-//                }
+            mAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = mAuth.currentUser
+                        Log.d("Firebase", "Sesión iniciada: " + user!!.email)
+                        val intent = Intent(this, ProductsActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Log.e("Firebase", "Error al iniciar sesión: ", task.exception)
+                        Toast.makeText(
+                            this, "Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
         }
 
         btnRegistrar = findViewById<Button>(R.id.btn_registrarse)
@@ -84,53 +87,53 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor ingrese su contraseña", Toast.LENGTH_SHORT).show()
             }
 
-//            mAuth.createUserWithEmailAndPassword(email.toString(), password.toString())
-//                .addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        Log.d(TAG, "createUserWithEmail:success")
-//                        val user = mAuth.currentUser
-////                        updateUI(user)
-//                        val intent = Intent(this, ProductsActivity::class.java)
-//                        startActivity(intent)
-//                    } else {
-//                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-////                        updateUI(null)
-//                        val e = task.exception
-//                        when (e) {
-//                            is FirebaseAuthUserCollisionException -> {
-//                                Toast.makeText(
-//                                    this,
-//                                    "Este correo ya está registrado.",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//
-//                            is FirebaseAuthWeakPasswordException -> {
-//                                Toast.makeText(
-//                                    this,
-//                                    "La contraseña es muy débil.",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//
-//                            is FirebaseAuthInvalidCredentialsException -> {
-//                                Toast.makeText(
-//                                    this,
-//                                    "Correo electrónico inválido.",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//
-//                            else -> {
-//                                Toast.makeText(
-//                                    this,
-//                                    "Error: ${e?.localizedMessage}",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//                        }
-//                    }
-//                }
+            mAuth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Log.d(TAG, "createUserWithEmail:success")
+                        val user = mAuth.currentUser
+//                        updateUI(user)
+                        val intent = Intent(this, ProductsActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+//                        updateUI(null)
+                        val e = task.exception
+                        when (e) {
+                            is FirebaseAuthUserCollisionException -> {
+                                Toast.makeText(
+                                    this,
+                                    "Este correo ya está registrado.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                            is FirebaseAuthWeakPasswordException -> {
+                                Toast.makeText(
+                                    this,
+                                    "La contraseña es muy débil.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                            is FirebaseAuthInvalidCredentialsException -> {
+                                Toast.makeText(
+                                    this,
+                                    "Correo electrónico inválido.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+
+                            else -> {
+                                Toast.makeText(
+                                    this,
+                                    "Error: ${e?.localizedMessage}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                    }
+                }
         }
 
         btnGoogle = findViewById<Button>(R.id.btn_google)

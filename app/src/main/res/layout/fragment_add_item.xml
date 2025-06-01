@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="40dp"
+                android:background="@color/black"
+                android:text="@string/nombre" />
+
+            <EditText
+                android:id="@+id/edt_product_name"
+                style="@style/EditTextRounded"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/nombre_producto" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_product_detail"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="40dp"
+                android:background="@color/black"
+                android:text="@string/detalle_del_producto" />
+
+            <EditText
+                android:id="@+id/edt_product_detail"
+                style="@style/EditTextRounded"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/detalle_del_producto" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="40dp"
+                android:background="@color/black"
+                android:text="@string/precio" />
+
+            <EditText
+                android:id="@+id/edt_product_price"
+                style="@style/EditTextRounded"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/precio" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/imagen"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_producto"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/imagen_del_producto"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_camera"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonSeleccionarImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:text="@string/seleccionar_imagen"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/buttonTomarFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="@string/tomar_foto"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonAgregarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="@string/agregar_producto"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

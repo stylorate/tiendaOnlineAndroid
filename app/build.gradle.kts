@@ -1,8 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
+    id("com.google.gms.google-services")
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
-    id("com.google.gms.google-services") version "4.4.2" apply false
 }
 
 android {
@@ -51,10 +50,12 @@ dependencies {
     implementation(libs.library.base)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.analytics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(platform(libs.firebase.bom))
+    implementation("com.google.firebase:firebase-auth:23.2.1")
+    implementation("com.google.firebase:firebase-core:21.1.1")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.0.0")
+    implementation("com.google.firebase:firebase-storage-ktx:20.0.0")
 }
